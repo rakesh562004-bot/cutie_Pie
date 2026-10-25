@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday!</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Magic Sparkle & Heart Trail Layer -->
+  <canvas id="trail-canvas"></canvas>
+
+  <!-- Celebration Confetti Layer -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- 3 Separate Audio Tracks -->
+  <audio id="audio-page1" src="assets/audio/music-page1.mp3" loop preload="auto"></audio>
+  <audio id="audio-page2" src="assets/audio/music-page2.mp3" loop preload="auto"></audio>
+  <audio id="audio-page3" src="assets/audio/music-page3.mp3" loop preload="auto"></audio>
+
+  <!-- Sound On/Off Toggle Button -->
+  <button id="music-toggle" class="music-toggle-btn" aria-label="Toggle Audio">
+    🎵 <span>Sound On</span>
+  </button>
+
+  <!-- ==========================================
+       PAGE 1: WELCOME & FLOATING BALLOON
+       ========================================== -->
+  <section id="page-1" class="page active">
+    <div class="page1-overlay"></div>
+
+    <div class="page1-center">
+      <h1 class="glow-title">Happy Birthday!</h1>
+      <p class="subtitle">A special celebration made just for you ✨</p>
+      <button id="btn-to-page-2" class="glow-btn">Open Your Surprise ➔</button>
+    </div>
+
+    <!-- Floating Balloon with Embedded Picture -->
+    <div class="balloon-wrapper">
+      <div class="balloon">
+        <img src="assets/images/balloon-photo.jpg" alt="Birthday Star" class="balloon-img" />
+      </div>
+      <div class="balloon-knot"></div>
+      <div class="balloon-string"></div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       PAGE 2: CAKE, VOICE BLOW & 3 SCRATCH VOUCHERS
+       ========================================== -->
+  <section id="page-2" class="page">
+    <div class="page-container">
+      
+      <!-- Interactive Cake Section -->
+      <div class="cake-section">
+        <h2 class="section-title">Make a Wish & Blow the Candle! 🎂</h2>
+        
+        <div class="cake-box">
+          <div class="cake">
+            <div class="plate"></div>
+            <div class="layer layer-bottom"></div>
+            <div class="layer layer-middle"></div>
+            <div class="layer layer-top"></div>
+            <div class="candle">
+              <div id="flame" class="flame"></div>
+              <div id="smoke" class="smoke"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Voice Recognition Prompt Badge -->
+        <div id="voice-hint" class="voice-hint">
+          🎤 Say: <span class="highlight-word">"I love you"</span> 🎂
+        </div>
+
+        <button id="blow-btn" class="blow-btn">💨 Or Click to Blow</button>
+        <p id="wish-message" class="wish-message hidden">🎉 May all your dreams and wishes come true! 🎉</p>
+      </div>
+
+      <div class="scroll-hint">
+        <span>👇 Scroll Down for Your Gift Vouchers 👇</span>
+      </div>
+
+      <!-- 3 Scratch Vouchers -->
+      <div class="vouchers-section">
+        <h2 class="section-title">Special Birthday Vouchers 🎟️</h2>
+        <p class="voucher-sub">Scratch the silver foil with your finger or mouse to reveal your gifts!</p>
+
+        <div class="vouchers-grid">
+          <!-- Voucher 1 -->
+          <div class="voucher-card">
+            <div class="voucher-underlay">
+              <span class="reward-icon">🎁</span>
+              <h4>Unlimited Hugs</h4>
+              <p>Redeemable anytime, everywhere, no expiration date!</p>
+            </div>
+            <canvas id="voucher-1" class="scratch-canvas" width="280" height="160"></canvas>
+          </div>
+
+          <!-- Voucher 2 -->
+          <div class="voucher-card">
+            <div class="voucher-underlay">
+              <span class="reward-icon">🍕</span>
+              <h4>Midnight Treat & Ride</h4>
+              <p>One late-night long drive with your favorite food!</p>
+            </div>
+            <canvas id="voucher-2" class="scratch-canvas" width="280" height="160"></canvas>
+          </div>
+
+          <!-- Voucher 3 -->
+          <div class="voucher-card">
+            <div class="voucher-underlay">
+              <span class="reward-icon">✨</span>
+              <h4>One Golden Wish</h4>
+              <p>One wish of yours that I must grant without saying no!</p>
+            </div>
+            <canvas id="voucher-3" class="scratch-canvas" width="280" height="160"></canvas>
+          </div>
+        </div>
+
+        <div class="nav-btn-box">
+          <button id="btn-to-page-3" class="glow-btn">See Our Favorite Moments ➔</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================
+       PAGE 3: UNCUT PHOTO GALLERY & FINAL NOTE
+       ========================================== -->
+  <section id="page-3" class="page">
+    <div class="page-container">
+      <h2 class="section-title">Our Cherished Memories 📸</h2>
+      <p class="gallery-sub">Every picture holds a timeless story.</p>
+
+      <div class="gallery-grid">
+        <div class="polaroid">
+          <div class="photo-frame">
+            <img src="assets/images/gallery/photo1.jpg" alt="Memory 1" />
+          </div>
+          <p class="caption">That Unforgettable Day ✨</p>
+        </div>
+
+        <div class="polaroid">
+          <div class="photo-frame">
+            <img src="assets/images/gallery/photo2.jpg" alt="Memory 2" />
+          </div>
+          <p class="caption">The Brightest Smile 😄</p>
+        </div>
+
+        <div class="polaroid">
+          <div class="photo-frame">
+            <img src="assets/images/gallery/photo3.jpg" alt="Memory 3" />
+          </div>
+          <p class="caption">Adventures & Laughs 🚀</p>
+        </div>
+
+        <div class="polaroid">
+          <div class="photo-frame">
+            <img src="assets/images/gallery/photo4.jpg" alt="Memory 4" />
+          </div>
+          <p class="caption">Golden Moments 💫</p>
+        </div>
+
+        <div class="polaroid">
+          <div class="photo-frame">
+            <img src="assets/images/gallery/photo5.jpg" alt="Memory 5" />
+          </div>
+          <p class="caption">Pure Happiness 💖</p>
+        </div>
+
+        <div class="polaroid">
+          <div class="photo-frame">
+            <img src="assets/images/gallery/photo6.jpg" alt="Memory 6" />
+          </div>
+          <p class="caption">To Many More Years Ahead 🥂</p>
+        </div>
+      </div>
+
+      <!-- Birthday Letter -->
+      <div class="final-letter">
+        <h3>Dearest Birthday Star,</h3>
+        <p>
+          Thank you for being such an incredible presence and bringing warmth, brightness, and laughter wherever you go. May this year bless you with good health, infinite reasons to smile, big achievements, and every happiness your heart desires!
+        </p>
+        <button id="btn-restart" class="restart-btn">↺ Experience Again</button>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
